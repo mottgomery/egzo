@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Все задачи
+{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Все задачи</h1>
+
+<div class="row">
+    {% for post in posts %}
+        <div class="col-md-6 item mb-4">
+            <div class="item-in">
+                <h4>{{ post.title }}</h4>
+                <div class="seperator"></div>
+                <p>Уровень сложности: {{ post.level }}</p>
+
+                <div>
+                    <p><strong>Задача:</strong></p>
+                    <img src="data:image/jpeg;base64,{{ post.zad }}" alt="Задача" class="zad__img">
+                </div>
+
+                <div class="mt-3">
+                    <p><strong>Решение:</strong></p>
+                    <img src="data:image/jpeg;base64,{{ post.resh }}" alt="Решение" class="zad__img">
+                </div>
+
+                <a href="#" class="mt-3 d-block">Подробнее
+                    <i class="fa fa-long-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    {% else %}
+        <p>Задачи пока не добавлены.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}
